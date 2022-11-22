@@ -1,6 +1,8 @@
-- hosts: all  
+---
+- name: ping module demo
+  hosts: all
+  become: false
+
   tasks:
-  - name: Make sure that we can connect to the machine
-    ping: 
-  - name: Install PHP
-    apt: name=php8.1-cli state=present update_cache=yes 
+    - name: test connection
+      ansible.builtin.ping:
