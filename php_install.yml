@@ -1,8 +1,7 @@
----
-- name: ping module demo
-  hosts: all
-  become: false
-
+- hosts: all
+  become: true
   tasks:
-    - name: test connection
-      ansible.builtin.ping:
+   - name: Make sure that we can connect to the machine
+     ping:
+   - name: Install php
+     apt: name=php5-cli state=present update_cache=yes
