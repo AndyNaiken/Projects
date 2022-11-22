@@ -2,5 +2,5 @@
   handlers:
     - name: Restart sshd
       service:
-        name: nginx
+        name: sshd
         state: restarted
