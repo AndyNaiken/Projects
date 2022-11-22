@@ -2,7 +2,7 @@
 - hosts: all
   vars:
     - create_user_file: yes
-    - user: test_andy  
+    - user: anpe  
   tasks:
     - name: create file for user
       file:
