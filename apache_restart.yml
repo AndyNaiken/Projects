@@ -3,6 +3,6 @@
   tasks:
     - name: restart apache2
       service:
-         name: apache
+         name: apache2
          state: restarted
          enabled: yes
