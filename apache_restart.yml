@@ -1,8 +1,8 @@
 ---
-- hosts: servers
+- hosts: all
   tasks:
-    - name: restart nginx
+    - name: restart apache2
       service:
-         name: nginx
+         name: apache
          state: restarted
          enabled: yes
