@@ -1,6 +1,6 @@
 ---
 - name: win_file module demo
-  hosts: 192.168.128.245
+  hosts: VM0009
   become: yes
   gather_facts: false
   vars:
