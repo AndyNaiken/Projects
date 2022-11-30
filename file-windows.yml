@@ -1,7 +1,7 @@
 ---
 - name: win_file module demo
-  hosts: all
-  become: false
+  hosts: 192.168.128.245
+  become: true
   gather_facts: false
   vars:
     myfile: 'C:\Users\Andy.Naiken\Desktop\example.txt'
