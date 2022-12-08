@@ -25,4 +25,4 @@
         
      - name: Join system to CPU AD.
       expect:
-        command: command: /bin/bash -c "/usr/sbin/realm join --user=anpe@cpu.qc.ca" -P P@ssw0rd2022
+        command: /bin/bash -c "/usr/sbin/realm join --user=anpe@cpu.qc.ca" -P P@ssw0rd2022
