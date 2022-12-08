@@ -23,8 +23,10 @@
         path: /etc/resolv.conf
         line: 'search test.qc'
         
-     - name: Join linux into domain
-       command: /bin/bash -c "/usr/sbin/realm join --user=anpe@cpu.qc.ca" -P P@ssw0rd2022
+    - name: Reads all logs files in /opt directory
+      ansible.builtin.shell: /bin/bash -c "/usr/sbin/realm join --user=anpe@cpu.qc.ca" -P P@ssw0rd2022
+           args: 
+             executable: /bin/bash # Run ls in the Bash shell
                 
     - name: Allow User Login without FQDN
       lineinfile: 
