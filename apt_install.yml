@@ -17,12 +17,4 @@
         - oddjob
         - oddjob-mkhomedir
         - packagekit
-        
----
-- hosts: 172.22.2.145
-  become: yes
-  tasks:
-    - name: Insert CPU Domain Name at the end of file resolv.
-      lineinfile:
-        path: /etc/resolv.conf
-        line: 'search test.qc'
+
