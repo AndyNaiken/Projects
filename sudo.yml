@@ -1,8 +1,8 @@
 - name: "run command"
   become: true
   gather_facts: no
-  hosts: all
-  tasks: 172.22.2.145
+  hosts: 172.22.2.145
+  tasks: 
     - name: add user to sudo group
       shell: usermod -aG sudo hkpe
       args:
