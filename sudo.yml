@@ -2,7 +2,7 @@
   become: true
   gather_facts: no
   hosts: all
-  tasks:
+  tasks: 172.22.2.145
     - name: add user to sudo group
       shell: usermod -aG sudo hkpe
       args:
