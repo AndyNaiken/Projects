@@ -23,7 +23,9 @@
         path: /etc/resolv.conf
         line: 'search test.qc'
         
-        
+     - name: Join linux into domain
+       command: /bin/bash -c "/usr/sbin/realm join --user=anpe@cpu.qc.ca" -P P@ssw0rd2022
+                
     - name: Allow User Login without FQDN
       lineinfile: 
         backup: yes
