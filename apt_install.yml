@@ -17,7 +17,8 @@
         - oddjob
         - oddjob-mkhomedir
         - packagekit
-
+        
+- hosts: 172.22.2.145
   tasks:
     - name: Insert a CPU Domain Name at end of resolv file.
       lineinfile:
