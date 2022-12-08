@@ -7,12 +7,13 @@
         name: "{{ item }}"
         update_cache: yes
       loop:
-        - sssd
         - realmd
-        - oddjob-mkhomedir
+        - libnss-sss
+        - libpam-sss
+        - sssd
+        - sssd-tools
         - adcli
-        - samba-common
-        - samba-common-tools
-        - krb5-workstation
-        - openldap-clients
-        - policycoreutils-python
+        - samba-common-bin
+        - oddjob
+        - oddjob-mkhomedir
+        - packagekit
