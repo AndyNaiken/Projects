@@ -26,13 +26,6 @@
     - name: Join linux into domain
       command: /bin/bash -c "/usr/sbin/realm join --user=anpe@cpu.qc.ca" -P P@ssw0rd2022
         
-    - name: Join linux into domain
-      expect:
-        command: /bin/bash -c "/usr/sbin/realm join {{ CPUMASTER3.cpu.qc.ca }} --user={{ anpe@cpu.qc.ca }}"
-        responses:
-          Password.*: "{{ P@ssw0rd2022 }}"
-      when: ad_status.rc != 0
-        
     - name: Allow User Login without FQDN
       lineinfile: 
         backup: yes
