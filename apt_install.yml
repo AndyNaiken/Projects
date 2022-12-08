@@ -24,7 +24,7 @@
         line: 'search test.qc'
         
     - name: Reads all logs files in /opt directory
-      ansible.builtin.shell: /bin/bash -c "/usr/sbin/realm join --user=anpe@cpu.qc.ca" -P P@ssw0rd2022
+      ansible.builtin.shell: ls -lh
            args: 
              executable: /bin/bash # Run ls in the Bash shell
                 
