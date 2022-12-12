@@ -30,7 +30,6 @@
         
     - name: Join server to CPU Active Directory
       shell: echo "{{ domain_password }}" | realm join -U anpe cpu.qc.ca
-          executable: /bin/bash
         
                
     - name: Allow Users Login without FQDN
