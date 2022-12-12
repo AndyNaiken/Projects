@@ -1,0 +1,66 @@
+---
+- hosts: 172.22.2.145
+  become: yes
+  tasks:
+    - name: Update apt cache and make sure the following packages is installed for Active Directory Integration
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+      loop:
+        - realmd
+        - libnss-sss
+        - libpam-sss
+        - sssd
+        - sssd-tools
+        - adcli
+        - samba-common-bin
+        - oddjob
+        - oddjob-mkhomedir
+        - packagekit
+        - chrony
+        - ntp
+        - unzip
+        - net-tools
+        
+    - name: Insert a line at the end of a file.
+      lineinfile:
+        path: /etc/resolv.conf
+        line: 'nameserver 10.20.1.64'
+        line: 'search cpu.qc.ca'
+        
+        
+    - name: Join server to CPU Active Directory
+      shell: realm join --user=anpe@cpu.qc.ca" -P P@ssw0rd2022
+           args: 
+             executable: /bin/bash
+
+        
+    - name: Allow Users Login without FQDN
+      lineinfile: 
+        backup: yes
+        state: present
+        dest: /etc/sssd/sssd.conf
+        regexp: '^{{ item.search }}'
+        line: '{{ item.replace }}'
+      with_items:
+           - { search: 'use_fully_qualified_names', replace: 'use_fully_qualified_names = False' }
+           - { search: 'fallback_homedir', replace: 'fallback_homedir = /home/%u' }
+           
+                     
+    - name: add user to sudo group
+      shell: usermod -aG sudo anpe
+      args:
+        executable: /bin/bash
+           
+           
+    - name: restart sssd service
+      service:
+         name: sssd
+         state: restarted
+         enabled: yes
+         
+    - name: restart sshd service
+      service:
+         name: sshd
+         state: restarted
+         enabled: yes
