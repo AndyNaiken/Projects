@@ -30,7 +30,7 @@
         
         
     - name: Join server to CPU Active Directory
-      shell: realm join --user=anpe@cpu.qc.ca" -P P@ssw0rd2022
+      shell: realm join -U anpe cpu.qc.ca -P P@ssw0rd2022
            args: 
              executable: /bin/bash
 
