@@ -4,6 +4,6 @@
   hosts: 172.22.2.145
   tasks: 
     - name: add user to sudo group
-      shell: usermod -aG sudo hkpe
+      shell: usermod -aG sudo test_adm
       args:
         executable: /bin/bash
