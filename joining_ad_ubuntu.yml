@@ -28,9 +28,6 @@
         line: 'nameserver 10.20.1.64'
         line: 'search cpu.qc.ca'
         
-    - name: Join server to CPU Active Directory
-      shell: echo "{{ domain_password }}" | realm join -U anpe cpu.qc.ca
-        
                
     - name: Allow Users Login without FQDN
       lineinfile: 
