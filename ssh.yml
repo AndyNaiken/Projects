@@ -1,11 +1,11 @@
 ---
-- hosts: all
-  become: yes
+- name: service module demo
+  hosts: all
+  become: true
   tasks:
-  - name: Stop and Start ssh
-    service:
-      name: sshd
-      state: "{{ item }}"
-    with_items:
-      - stopped
-      - started
+    - name: sshd restart
+      ansible.builtin.service:
+        name: sshd
+        state: restarted
+        enabled: true
+
