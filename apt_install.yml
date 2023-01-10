@@ -18,19 +18,4 @@
         - oddjob-mkhomedir
         - packagekit
         
-    - name: Insert a CPU Domain Name at end of resolv file.
-      lineinfile:
-        path: /etc/resolv.conf
-        line: 'search test.qc'
-        
-                
-    - name: Allow User Login without FQDN
-      lineinfile: 
-        backup: yes
-        state: present
-        dest: /etc/sssd/sssd.conf
-        regexp: '^{{ item.search }}'
-        line: '{{ item.replace }}'
-      with_items:
-           - { search: 'use_fully_qualified_names', replace: 'use_fully_qualified_names = False' }
-           - { search: 'fallback_homedir', replace: 'fallback_homedir = /home/%u' }
+    
