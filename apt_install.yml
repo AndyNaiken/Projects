@@ -1,5 +1,5 @@
 ---
-- hosts: 172.22.2.145
+- hosts: all
   become: yes
   tasks:
     - name: Update apt cache and make sure the follwing packages is installed for Active Directory Integration
