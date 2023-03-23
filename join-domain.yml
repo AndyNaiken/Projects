@@ -16,8 +16,8 @@
 
     - name: Join Ubuntu to Active Directory
       shell: |
-        realm discover your_domain_name
-        realm join --verbose your_domain_name -U your_domain_admin_account
+        realm discover cpu.qc.ca
+        realm join --verbose cpu.qc.ca -U anpe@cpu.qc.ca
 
     - name: Configure SSSD
       copy:
